@@ -38,12 +38,12 @@
         source: {
           portal: {
             url: "https://www.arcgis.com",
-            useVectorBasemaps: true  // Load vector tile basemaps
+            useVectorBasemaps: false  // Load raster tile basemaps
           }
         }
         });
 
-      view.ui.add(basemapGallery, "bottom-right");
+      view.ui.add(basemapGallery, "bottom-right");   
 
       // Basemap Toggle
         /*var basemapToggle = new BasemapToggle({
