@@ -12,8 +12,7 @@
 
 ## Resources
 
-* Documentación general acerca de los objetos de JS [aqui](https://developer.mozilla.org/es/docs/Learn/JavaScript/Client-side_web_APIs/Introducción)
-* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects
+* Documentación general acerca de como se consumen API en JS [aqui](https://developer.mozilla.org/es/docs/Learn/JavaScript/Client-side_web_APIs/Introducción) y de los objetos de la API [aqui](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 
 ### 1. Create a Starter App ​[:link:](https://developers.arcgis.com/javascript/latest/guide/create-a-starter-app/)​
 
@@ -40,7 +39,11 @@ Here you need to add more information about which type of information is availab
 
 ### 4. Style feature layers ​[:link:](https://developers.arcgis.com/javascript/latest/guide/style-feature-layers/)​ 
 
-The definition of renderers in theses tutorial is different than in the past. 
+The definition of renderers in theses tutorial is different than in the past lessos
+
+### 5. Configure pop-ups ​[:link:](https://developers.arcgis.com/javascript/latest/guide/configure-pop-ups/)​
+
+You could use the code of the previous tutorial
 
 
 

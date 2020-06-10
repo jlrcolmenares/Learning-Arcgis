@@ -115,14 +115,14 @@
 
         map.add(trails, 2);
 
-        //Add a new layer for the bike trails only
+        // BIKE-TRAILS feature layer and popups
         var bikeTrailsRenderer = {
           type: "simple",
           symbol: {
             type: "simple-line",
             style: "short-dot",
-            color: "#FF0000",
-            width: "3px"
+            color: "#c42b37",
+            width: "2px"
           }
         };
 
@@ -130,12 +130,13 @@
           url:
             "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0",
           renderer: bikeTrailsRenderer,
+          opacity: 0.75,
           definitionExpression: "USE_BIKE = 'YES'"
         });
 
         map.add(bikeTrails, 1);
 
-        // Style park area with unique colors
+        // PARKS AND OPEN SPACES feature layer and options
         function createFillSymbol(value, color) { //this is a function to generate fill colors
           return {
             value: value,
@@ -155,18 +156,68 @@
           type: "unique-value",
           field: "TYPE",
           uniqueValueInfos: [
-            createFillSymbol("Natural Areas", "#2c30a0"),
+            createFillSymbol("Natural Areas", "#ffe14f"),
             createFillSymbol("Regional Open Space", "#A7C636"),
             createFillSymbol("Local Park", "#149ECE"),
             createFillSymbol("Regional Recreation Park", "#ED5151")
           ]
         };
 
+        var popupOpenspaces = {
+          "title": "{PARK_NAME}",
+          "content": [{
+            "type": "fields",
+            "fieldInfos": [
+              {
+                "fieldName": "AGNCY_NAME",
+                "label": "Agency",
+                "isEditable": true,
+                "tooltip": "",
+                "visible": true,
+                "format": null,
+                "stringFieldOption": "text-box"
+              },
+              {
+                "fieldName": "TYPE",
+                "label": "Type",
+                "isEditable": true,
+                "tooltip": "",
+                "visible": true,
+                "format": null,
+                "stringFieldOption": "text-box"
+              },
+              {
+                "fieldName": "ACCESS_TYP",
+                "label": "Access",
+                "isEditable": true,
+                "tooltip": "",
+                "visible": true,
+                "format": null,
+                "stringFieldOption": "text-box"
+              },
+              {
+                "fieldName": "GIS_ACRES",
+                "label": "Acres",
+                "isEditable": true,
+                "tooltip": "",
+                "visible": true,
+                "format": {
+                  "places": 2,
+                  "digitSeparator": true
+                },
+                "stringFieldOption": "text-box"
+              }
+            ]
+          }]
+        }
+        
         var openspaces = new FeatureLayer({
           url:
             "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0",
           renderer: openSpacesRenderer,
-          opacity: 0.20
+          opacity: 0.45,
+          outFields: ["TYPE","PARK_NAME", "AGNCY_NAME","ACCESS_TYP","GIS_ACRES"],
+          popupTemplate: popupOpenspaces
         });
 
         map.add(openspaces, 0)
