@@ -23,60 +23,59 @@
         var map = new Map({
           basemap: "topo-vector"
         });
-    
+
         var view = new MapView({
           container: "viewDiv",
           map: map,
-          center: [-118.80500, 34.02700], // longitude, latitude
+          center: [-118.80543,34.02700],
           zoom: 13
         });
-        
-        // Parks and open spaces (polygons)
-        var parksLayer = new FeatureLayer({
-          url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0"
-        });
 
-        map.add(parksLayer, 0);
-        
-        // Trails feature layer (lines)
-        var trailsLayer = new FeatureLayer({
-          url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0",
-          //*** ADD ***//
-          definitionExpression: "ELEV_GAIN < 250",
-          //*** ADD ***//
-          renderer: {
-            type: "simple",
-            symbol: {
-              type: "simple-line",
-              color: "green",
-              width: "2px"
+        /* This is another way to define the rendeder. 
+          We're not using the same point*/
+        var trailheadsRenderer = {
+          "type": "simple",
+          "symbol": {
+            "type": "picture-marker",
+            "url": "http://static.arcgis.com/images/Symbols/NPS/npsPictograph_0231b.png",
+            "width": "15px",
+            "height": "15px"
+          }
+        }
+
+        var trailheadsLabels = {
+          symbol: {
+            type: "text",
+            color: "#FFFFFF",
+            haloColor: "#fE8D74",
+            haloSize: "3px",
+            font: {
+              size: "14px",
+              family: "Noto Sans",
+              style: "normal",
+              weight: "bold"
             }
           },
-          //*** ADD ***//
-          outFields: ["TRL_NAME","ELEV_GAIN"], //These are fields available in the webmap. Look for the spreadsheet
-          //*** ADD ***// 
-          popupTemplate: {  // Enable a popup
-            title: "{TRL_NAME}", // Show attribute value
-            content: "The trail elevation gain is {ELEV_GAIN} ft."  // Display text in pop-up
+          labelPlacement: "above-center",
+          labelExpressionInfo: {
+            expression: "$feature.TRL_NAME"
           }
-          // as you can see here you're filtering
+        };
+
+        var trailheads = new FeatureLayer({
+          url:
+            "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
+          renderer: trailheadsRenderer,
+          labelingInfo: [trailheadsLabels]
         });
 
-        map.add(trailsLayer, 1);
-
-        // Trailheads feature layer (points)
-        var trailheadsLayer = new FeatureLayer({
-          url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0"
-        });
-        map.add(trailheadsLayer,2);
+        map.add(trailheads);
 
       })
     </script>
   </head>
   
   <body>
-    <div id="viewDiv">
-      
-    </div>
+    <div id="viewDiv"></div>
   </body>
 </html>
