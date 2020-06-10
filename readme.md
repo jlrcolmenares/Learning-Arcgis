@@ -36,5 +36,11 @@ Some useful resources:
 
 ### 3. Add layers to map ​[:link:](https://developers.arcgis.com/javascript/latest/guide/add-layers-to-a-map/)​
 
+Here you need to add more information about which type of information is available in 
+
+### 4. Style feature layers ​[:link:](https://developers.arcgis.com/javascript/latest/guide/style-feature-layers/)​ 
+
+The definition of renderers in theses tutorial is different than in the past. 
+
 
 
