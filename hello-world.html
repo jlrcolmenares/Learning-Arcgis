@@ -31,8 +31,7 @@
           zoom: 13
         });
 
-        /* This is another way to define the rendeder. 
-          We're not using the same point*/
+        /* This is another way to define the rendeders*/
         var trailheadsRenderer = {
           "type": "simple",
           "symbol": {
@@ -69,7 +68,7 @@
           labelingInfo: [trailheadsLabels]
         });
 
-        map.add(trailheads,2);
+        map.add(trailheads,3);
         
         // Adding Trails Layer with custom rendering
         var trailsRenderer = {
@@ -98,7 +97,7 @@
           opacity: .5
         });
 
-        map.add(trails, 0);
+        map.add(trails, 2);
 
         //Add a new layer for the bike trails only
         var bikeTrailsRenderer = {
@@ -151,12 +150,10 @@
           url:
             "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0",
           renderer: openSpacesRenderer,
-          opacity: 0.80
+          opacity: 0.20
         });
 
         map.add(openspaces, 0)
-
-      
       })
     </script>
   </head>
