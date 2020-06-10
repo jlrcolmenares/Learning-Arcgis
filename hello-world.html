@@ -53,12 +53,13 @@
             }
           },
           //*** ADD ***//
-          outFields: ["TRL_NAME","ELEV_GAIN"],
-          //*** ADD ***//
+          outFields: ["TRL_NAME","ELEV_GAIN"], //These are fields available in the webmap. Look for the spreadsheet
+          //*** ADD ***// 
           popupTemplate: {  // Enable a popup
             title: "{TRL_NAME}", // Show attribute value
             content: "The trail elevation gain is {ELEV_GAIN} ft."  // Display text in pop-up
           }
+          // as you can see here you're filtering
         });
 
         map.add(trailsLayer, 1);
