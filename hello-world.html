@@ -62,8 +62,8 @@
         };
 
         var popupTrailheads = {
-        "title": "{TRL_NAME}",
-        "content": "<b>City:</b> {CITY_JUR}<br><b>Cross Street:</b> {X_STREET}<br><b>Parking:</b> {PARKING}<br><b>Elevation:</b> {ELEV_FT} ft"
+          "title": "{TRL_NAME}",
+          "content": "<b>City:</b> {CITY_JUR}<br><b>Cross Street:</b> {X_STREET}<br><b>Parking:</b> {PARKING}<br><b>Elevation:</b> {ELEV_FT} ft"
         }
 
         var trailheads = new FeatureLayer({
@@ -99,9 +99,20 @@
 
         var popupTrails = {
           "title": "Trail Information",
-          "content": function(){
-            return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
-          }
+          //"content": function(){
+          //  return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
+          content: [{
+            type: "media",
+              mediaInfos: [{
+                type: "column-chart",
+                caption: "",
+                value: {
+                  fields: [ "ELEV_MIN","ELEV_MAX" ],
+                  normalizeField: null,
+                  tooltipField: "Min and max elevation values"
+                }
+            }]
+          }]
         }
 
         var trails = new FeatureLayer({
