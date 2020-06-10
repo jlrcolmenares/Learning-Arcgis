@@ -34,7 +34,7 @@ Some useful resources:
 
 * VectorBasemap Property: https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#useVectorBasemaps
 
-### 3. Add layers to map
+### 3. Add layers to map ​[:link:](https://developers.arcgis.com/javascript/latest/guide/add-layers-to-a-map/)​
 
 
 
