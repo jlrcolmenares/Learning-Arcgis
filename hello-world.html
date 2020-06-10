@@ -69,7 +69,7 @@
           labelingInfo: [trailheadsLabels]
         });
 
-        map.add(trailheads,1);
+        map.add(trailheads,2);
         
         // Adding Trails Layer with custom rendering
         var trailsRenderer = {
@@ -100,7 +100,25 @@
 
         map.add(trails, 0);
 
-        
+        //Add a new layer for the bike trails only
+        var bikeTrailsRenderer = {
+          type: "simple",
+          symbol: {
+            type: "simple-line",
+            style: "short-dot",
+            color: "#FF0000",
+            width: "3px"
+          }
+        };
+
+        var bikeTrails = new FeatureLayer({
+          url:
+            "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0",
+          renderer: bikeTrailsRenderer,
+          definitionExpression: "USE_BIKE = 'YES'"
+        });
+
+        map.add(bikeTrails, 1);
 
       
       })
