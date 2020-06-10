@@ -12,6 +12,9 @@
 
 ## Resources
 
+* Documentación general acerca de los objetos de JS [aqui](https://developer.mozilla.org/es/docs/Learn/JavaScript/Client-side_web_APIs/Introducción)
+* https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects
+
 ### 1. Create a Starter App ​[:link:](https://developers.arcgis.com/javascript/latest/guide/create-a-starter-app/)​
 
 First tutorial. 
@@ -30,5 +33,8 @@ Some useful resources:
 **Basemap Gallery**
 
 * VectorBasemap Property: https://developers.arcgis.com/javascript/latest/api-reference/esri-portal-Portal.html#useVectorBasemaps
-* 
+
+### 3. Add layers to map
+
+
 
