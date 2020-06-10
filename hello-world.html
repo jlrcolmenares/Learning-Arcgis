@@ -120,6 +120,42 @@
 
         map.add(bikeTrails, 1);
 
+        // Style park area with unique colors
+        function createFillSymbol(value, color) { //this is a function to generate fill colors
+          return {
+            value: value,
+            symbol: {
+              color: color,
+              type: "simple-fill",
+              style: "solid",
+              outline: {
+                style: "none"
+              }
+            },
+            label: value
+          };
+        }
+
+        var openSpacesRenderer = {
+          type: "unique-value",
+          field: "TYPE",
+          uniqueValueInfos: [
+            createFillSymbol("Natural Areas", "#2c30a0"),
+            createFillSymbol("Regional Open Space", "#A7C636"),
+            createFillSymbol("Local Park", "#149ECE"),
+            createFillSymbol("Regional Recreation Park", "#ED5151")
+          ]
+        };
+
+        var openspaces = new FeatureLayer({
+          url:
+            "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0",
+          renderer: openSpacesRenderer,
+          opacity: 0.80
+        });
+
+        map.add(openspaces, 0)
+
       
       })
     </script>
