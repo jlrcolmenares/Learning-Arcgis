@@ -99,7 +99,7 @@
 
         var popupTrails = {
           "title": "Trail Information",
-          //"content": function(){
+          //"content": 
           //  return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
           
           /*content: [{
@@ -128,7 +128,7 @@
             "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0",
           renderer: trailsRenderer,
           opacity: .5,
-          outFields: ["TRL_NAME","ELEV_GAIN"], // son los campos que se van a exponer
+          outFields: ["TRL_NAME","ELEV_GAIN","ELEV_MIN","ELEV_MAX","LENGTH_MI"], // son los campos que se van a exponer
           popupTemplate: popupTrails
         });
 
