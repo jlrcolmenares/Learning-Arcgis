@@ -31,7 +31,7 @@
           zoom: 13
         });
 
-        /* This is another way to define the rendeders*/
+        // TRAILHEADS feature layers and options
         var trailheadsRenderer = {
           "type": "simple",
           "symbol": {
@@ -61,16 +61,23 @@
           }
         };
 
+        var popupTrailheads = {
+        "title": "{TRL_NAME}",
+        "content": "<b>City:</b> {CITY_JUR}<br><b>Cross Street:</b> {X_STREET}<br><b>Parking:</b> {PARKING}<br><b>Elevation:</b> {ELEV_FT} ft"
+        }
+
         var trailheads = new FeatureLayer({
           url:
             "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
           renderer: trailheadsRenderer,
-          labelingInfo: [trailheadsLabels]
+          labelingInfo: [trailheadsLabels],
+          outFields: ["TRL_NAME","CITY_JUR","X_STREET","PARKING","ELEV_FT"],
+          popupTemplate: popupTrailheads
         });
 
         map.add(trailheads,3);
         
-        // Adding Trails Layer with custom rendering
+        // TRAILS feature layer and options
         var trailsRenderer = {
           type: "simple",
           symbol: {
