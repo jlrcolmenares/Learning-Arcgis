@@ -45,5 +45,12 @@ The definition of renderers in theses tutorial is different than in the past les
 
 You could use the code of the previous tutorial
 
+### 6. Query a feature layer ​[:link:](https://developers.arcgis.com/javascript/latest/guide/query-a-feature-layer/)​ 
 
+
+
+# Examples
+
+1. Until the 5th tutorial: https://codepen.io/joseluisramon/pen/eYJJPYe?editors=1000
+2. 
 
